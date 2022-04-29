@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Warmongr</string>
+    <string name="app_name_part_1" />
+    <string name="app_name_part_2">War</string>
+    <string name="app_name_part_3">mongers</string>
+    <string name="app_search_hint">Search…</string>
+    <bool name="app_cyrillic">false</bool>
+</resources>
