@@ -11,8 +11,8 @@ android {
         applicationId "com.sirekanian.warmongr"
         minSdk 21
         targetSdk 32
-        versionCode 0
-        versionName "0.0.0"
+        versionCode 1
+        versionName "0.1.0"
         archivesBaseName = "$applicationId-$versionName-$versionCode"
         vectorDrawables {
             useSupportLibrary true
