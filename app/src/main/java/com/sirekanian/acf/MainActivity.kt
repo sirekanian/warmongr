@@ -1,7 +1,6 @@
 package com.sirekanian.acf
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
@@ -34,13 +33,6 @@ class MainActivity : ComponentActivity() {
             val presenter = remember { createPresenter(app(), state) }
             val data by presenter.observeData().collectAsState(listOf())
             val hasData by derivedStateOf { data.isNotEmpty() }
-            LaunchedEffect(Unit) {
-                try {
-                    presenter.updateData()
-                } catch (exception: Exception) {
-                    Log.e("Warmongr", "Cannot update data", exception)
-                }
-            }
             BackHandler(enabled = state.search.isOpened) {
                 state.search.isOpened = false
             }
