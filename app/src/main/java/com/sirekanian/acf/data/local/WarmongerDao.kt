@@ -17,9 +17,6 @@ interface WarmongerDao {
     @Query("SELECT * FROM WarmongerEntity WHERE WarmongerEntity MATCH :query LIMIT $LIMIT")
     fun observeByQuery(query: String): Flow<List<WarmongerEntity>>
 
-    @Query("SELECT count(1) FROM WarmongerEntity LIMIT 1")
-    suspend fun hasData(): Boolean
-
     @Query("DELETE FROM WarmongerEntity")
     suspend fun deleteAll()
 

@@ -36,9 +36,9 @@ class MainActivity : ComponentActivity() {
             val hasData by derivedStateOf { data.isNotEmpty() }
             LaunchedEffect(Unit) {
                 try {
-                    presenter.initData()
+                    presenter.updateData()
                 } catch (exception: Exception) {
-                    Log.e("Warmongr", "Cannot initialize data", exception)
+                    Log.e("Warmongr", "Cannot update data", exception)
                 }
             }
             BackHandler(enabled = state.search.isOpened) {

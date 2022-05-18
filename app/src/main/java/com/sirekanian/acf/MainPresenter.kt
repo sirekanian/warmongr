@@ -16,7 +16,7 @@ fun createPresenter(app: App, state: MainState): MainPresenter =
 
 interface MainPresenter {
     fun observeData(): Flow<List<Warmonger>>
-    suspend fun initData()
+    suspend fun updateData()
 }
 
 class MainPresenterImpl(
@@ -31,11 +31,8 @@ class MainPresenterImpl(
             repository.observeAll()
         }
 
-    override suspend fun initData() =
+    override suspend fun updateData() =
         withContext(IO) {
-            if (!repository.hasData()) {
-                repository.initLocal()
-            }
             while (true) {
                 repository.updateFromRemote(state.progress)
                 delay(UPDATE_PERIOD)
