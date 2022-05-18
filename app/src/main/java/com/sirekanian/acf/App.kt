@@ -7,6 +7,10 @@ import com.sirekanian.acf.data.RepositoryImpl
 import com.sirekanian.acf.data.local.Database
 
 class App : Application() {
-    private val db by lazy { Room.databaseBuilder(this, Database::class.java, "database").build() }
+    private val db by lazy {
+        Room.databaseBuilder(this, Database::class.java, "database")
+            .createFromAsset("warmongers.db")
+            .build()
+    }
     val repository: Repository by lazy { RepositoryImpl(db.warmongerDao()) }
 }
