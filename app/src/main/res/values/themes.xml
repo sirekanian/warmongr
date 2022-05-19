@@ -1,11 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Warmongr" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowBackground">@color/app_splash_background_color</item>
-        <item name="android:statusBarColor">#00000000</item>
-        <item name="android:navigationBarColor">#66000000</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+    <style name="Theme.Warmongr" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/appWindowBackground</item>
+        <item name="android:statusBarColor">@color/appStatusBarColor</item>
+        <item name="android:navigationBarColor">@color/appNavigationBarColor</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">
+            @bool/appWindowLightStatusBar
+        </item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">
+            @bool/appWindowLightNavigationBar
+        </item>
     </style>
 
 </resources>
