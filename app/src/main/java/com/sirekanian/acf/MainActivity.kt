@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             MainProgress(insets, state.progress)
                         },
                         toolbarElevation = state.toolbarElevation,
-                        content = { insets -> MainContent(insets, state.list, data) },
+                        content = { insets -> MainContent(insets, state, data) },
                         contentVisible = hasData,
                         fab = { MainFab(onClick = { state.search.isOpened = true }) },
                         fabVisible = !state.search.isOpened,
