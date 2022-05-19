@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sirekanian.acf">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -7,11 +8,14 @@
     <application
         android:name=".App"
         android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher2_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Warmongr">
+        android:theme="@style/Theme.Warmongr"
+        tools:targetApi="s">
 
         <activity
             android:name=".MainActivity"
