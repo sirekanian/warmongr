@@ -9,7 +9,10 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 
-private const val ACF_URL = "https://sirekanian.github.io/warmongers.json"
+private const val ENDPOINT = "https://sirekanian.github.io/warmongr"
+private const val DATA_URL = "$ENDPOINT/data.json"
+private const val META_URL = "$ENDPOINT/meta.json"
+
 private val httpClient = HttpClient {
     install(ContentNegotiation) {
         json()
@@ -20,4 +23,7 @@ private val httpClient = HttpClient {
 }
 
 suspend fun getWarmongers(listener: ProgressListener): List<WarmongerDto> =
-    httpClient.get(ACF_URL) { onDownload(listener) }.body()
+    httpClient.get(DATA_URL) { onDownload(listener) }.body()
+
+suspend fun getMeta(): MetaDto =
+    httpClient.get(META_URL).body()

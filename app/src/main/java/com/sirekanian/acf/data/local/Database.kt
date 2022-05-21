@@ -3,9 +3,10 @@ package com.sirekanian.acf.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-@Database(entities = [WarmongerEntity::class], version = 1)
+@Database(entities = [WarmongerEntity::class, MetaEntity::class], version = 1)
 abstract class Database : RoomDatabase() {
 
-    abstract fun warmongerDao(): WarmongerDao
+    abstract fun getWarmongerDao(): WarmongerDao
+    abstract fun getMetaDao(): MetaDao
 
 }

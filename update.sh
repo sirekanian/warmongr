@@ -2,24 +2,39 @@
 
 set -e
 
-JSON=$(find app/schemas/com.sirekanian.acf.data.local.Database/*.json | sort -V | tail -1)
-TABLE="WarmongerEntity"
+ENDPOINT="https://sirekanian.github.io/warmongr"
+SCHEMAS="app/schemas/com.sirekanian.acf.data.local.Database"
+SCHEMA=$(find "$SCHEMAS" -name "*.json" | sort -V | tail -1)
 
-wget --header="Accept-Encoding: gzip" -qO- https://sirekanian.github.io/warmongers.json | gunzip |
+# transform meta.json to csv
+wget -qO- "$ENDPOINT/meta.json" |
+  jq -r 'to_entries[] | [.key, .value] | @csv' \
+    >"app/schemas/MetaEntity.csv"
+
+# transform data.json to csv
+wget --header="Accept-Encoding: gzip" -qO- "$ENDPOINT/data.json" | gunzip |
   jq -r 'map([.["0"],.["1"],.["4"]])[] | @csv' \
-    >"app/schemas/init.csv"
+    >"app/schemas/WarmongerEntity.csv"
 
-jq -r ".database.setupQueries[]" "$JSON" |
+# copy setupQueries from schema
+jq -r ".database.setupQueries[]" "$SCHEMA" |
   sed 's/$/;/' \
     >app/schemas/init.sql
 
-jq -r ".database.entities[] | select(.tableName==\"$TABLE\") | .createSql" "$JSON" |
-  sed "s/\${TABLE_NAME}/$TABLE/" |
-  sed 's/$/;/' \
+for TABLE in MetaEntity WarmongerEntity; do
+
+  # copy createSql from schema
+  jq -r ".database.entities[] | select(.tableName==\"$TABLE\") | .createSql" "$SCHEMA" |
+    sed "s/\${TABLE_NAME}/$TABLE/" |
+    sed 's/$/;/' \
+      >>app/schemas/init.sql
+
+  # generate import csv command
+  echo ".import --csv app/schemas/$TABLE.csv $TABLE" \
     >>app/schemas/init.sql
 
-echo ".import --csv app/schemas/init.csv $TABLE" \
-  >>app/schemas/init.sql
+done
 
+# recreate pre-packaged database
 rm -f app/src/main/assets/warmongers.db
 sqlite3 app/src/main/assets/warmongers.db <app/schemas/init.sql

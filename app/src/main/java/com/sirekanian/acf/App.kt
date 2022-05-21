@@ -9,8 +9,9 @@ import com.sirekanian.acf.data.local.Database
 class App : Application() {
     private val db by lazy {
         Room.databaseBuilder(this, Database::class.java, "database")
+            .fallbackToDestructiveMigration()
             .createFromAsset("warmongers.db")
             .build()
     }
-    val repository: Repository by lazy { RepositoryImpl(db.warmongerDao()) }
+    val repository: Repository by lazy { RepositoryImpl(db.getWarmongerDao()) }
 }

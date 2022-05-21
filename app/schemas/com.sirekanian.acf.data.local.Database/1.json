@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "67617e1b82bf6e5f548c1a717680e21b",
+    "identityHash": "16167d0ed0bd86c6fc41266aa0abe921",
     "entities": [
       {
         "ftsVersion": "FTS4",
@@ -45,12 +45,38 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "MetaEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`key` TEXT NOT NULL, `value` TEXT NOT NULL, PRIMARY KEY(`key`))",
+        "fields": [
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "key"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '67617e1b82bf6e5f548c1a717680e21b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16167d0ed0bd86c6fc41266aa0abe921')"
     ]
   }
 }
