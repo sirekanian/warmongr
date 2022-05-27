@@ -1,5 +1,6 @@
 package com.sirekanian.acf.data
 
+import com.sirekanian.acf.WarmongerModel
 import com.sirekanian.acf.data.local.WarmongerEntity
 import com.sirekanian.acf.data.remote.WarmongerDto
 
@@ -25,11 +26,17 @@ class Warmonger(
                 notes = entity.notes,
             )
 
-        fun toEntity(model: Warmonger): WarmongerEntity =
+        fun toEntity(warmonger: Warmonger): WarmongerEntity =
             WarmongerEntity(
-                cyrillicName = model.cyrillicName,
-                name = model.name,
-                notes = model.notes,
+                cyrillicName = warmonger.cyrillicName,
+                name = warmonger.name,
+                notes = warmonger.notes,
+            )
+
+        fun toModel(warmonger: Warmonger, isCyrillic: Boolean): WarmongerModel =
+            WarmongerModel(
+                title = if (isCyrillic) warmonger.cyrillicName else warmonger.name,
+                description = warmonger.notes,
             )
 
     }

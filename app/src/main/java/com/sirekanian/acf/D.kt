@@ -15,4 +15,7 @@ object D {
     val cardSelectedElevation = 4.dp
     val cardSpacing = 8.dp
     val progressSize = 2.dp
+    val dialogTitlePadding = 16.dp
+    val menuIconPadding = 16.dp
+    val menuTextPadding = 8.dp
 }

@@ -18,10 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.WindowCompat
 import com.sirekanian.acf.ext.app
-import com.sirekanian.acf.ui.MainContent
-import com.sirekanian.acf.ui.MainFab
-import com.sirekanian.acf.ui.MainProgress
-import com.sirekanian.acf.ui.MainToolbar
+import com.sirekanian.acf.ext.isCyrillicResources
+import com.sirekanian.acf.ui.*
 import com.sirekanian.acf.ui.theme.WarmongrTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +27,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            val state = remember { MainState() }
+            val coroutineScope = rememberCoroutineScope()
+            val isCyrillic = isCyrillicResources()
+            val state = remember { MainState(coroutineScope, isCyrillic) }
             val presenter = remember { createPresenter(app(), state) }
             val data by presenter.observeData().collectAsState(listOf())
             val hasData by derivedStateOf { data.isNotEmpty() }
@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity() {
                         .background(MaterialTheme.colors.background)
                 ) {
                     MainLayout(
+                        state = state,
                         toolbar = { insets ->
                             MainToolbar(insets, state.search)
                             MainProgress(insets, state.progress)
@@ -61,6 +62,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainLayout(
+    state: MainState,
     toolbar: @Composable (PaddingValues) -> Unit,
     toolbarElevation: Dp,
     content: @Composable (PaddingValues) -> Unit,
@@ -68,15 +70,17 @@ fun MainLayout(
     fab: @Composable () -> Unit,
     fabVisible: Boolean,
 ) {
-    AnimatedVisibility(contentVisible, enter = fadeIn(), exit = fadeOut()) {
-        content(WindowInsets.systemBars.asPaddingValues())
-    }
-    Surface(Modifier.fillMaxWidth(), elevation = toolbarElevation) {
-        toolbar(WindowInsets.statusBars.asPaddingValues())
-    }
-    AnimatedVisibility(fabVisible, enter = fadeIn(), exit = fadeOut()) {
-        BottomBox(Modifier.padding(D.fabPadding)) {
-            fab()
+    MainBottomSheet(dialogState = state.dialog) {
+        AnimatedVisibility(contentVisible, enter = fadeIn(), exit = fadeOut()) {
+            content(WindowInsets.systemBars.asPaddingValues())
+        }
+        Surface(Modifier.fillMaxWidth(), elevation = toolbarElevation) {
+            toolbar(WindowInsets.statusBars.asPaddingValues())
+        }
+        AnimatedVisibility(fabVisible, enter = fadeIn(), exit = fadeOut()) {
+            BottomBox(Modifier.padding(D.fabPadding)) {
+                fab()
+            }
         }
     }
     if (MaterialTheme.colors.isLight) {

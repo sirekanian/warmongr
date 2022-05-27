@@ -4,5 +4,7 @@
     <string name="app_name_part_2">War</string>
     <string name="app_name_part_3">mongers</string>
     <string name="app_search_hint">Search…</string>
+    <string name="app_copy_menu">Copy</string>
+    <string name="app_share_menu">Share</string>
     <bool name="app_cyrillic">false</bool>
 </resources>

@@ -2,7 +2,8 @@ package com.sirekanian.acf.ui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ContentAlpha
@@ -15,11 +16,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.sirekanian.acf.D
-import com.sirekanian.acf.data.Warmonger
-import com.sirekanian.acf.ext.isCyrillicResources
+import com.sirekanian.acf.DialogState
+import com.sirekanian.acf.WarmongerModel
 
 @Composable
-fun WarmongerCard(warmonger: Warmonger) {
+fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
     var isExpanded by remember { mutableStateOf(false) }
     val surfaceCornerSize by animateDpAsState(
         if (isExpanded) {
@@ -40,26 +41,37 @@ fun WarmongerCard(warmonger: Warmonger) {
         shape = RoundedCornerShape(surfaceCornerSize),
         elevation = surfaceElevation
     ) {
-        WarmongerCardContent(warmonger, isExpanded) { isExpanded = !isExpanded }
+        WarmongerCardContent(
+            warmonger = warmonger,
+            isExpanded = isExpanded,
+            onClick = { isExpanded = !isExpanded },
+            onLongClick = { dialogState.show(warmonger) },
+        )
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun WarmongerCardContent(warmonger: Warmonger, isExpanded: Boolean, onClick: () -> Unit) {
+private fun WarmongerCardContent(
+    warmonger: WarmongerModel,
+    isExpanded: Boolean,
+    onClick: () -> Unit,
+    onLongClick: () -> Unit,
+) {
     Column(
         modifier = Modifier
-            .clickable(onClick = onClick)
+            .combinedClickable(onClick = onClick, onLongClick = onLongClick)
             .padding(24.dp)
             .padding(PaddingValues())
             .animateContentSize()
     ) {
         Text(
-            text = if (isCyrillicResources()) warmonger.cyrillicName else warmonger.name,
+            text = warmonger.title,
             style = MaterialTheme.typography.h6
         )
         Spacer(Modifier.size(12.dp))
         Text(
-            text = warmonger.notes,
+            text = warmonger.description,
             modifier = Modifier.alpha(ContentAlpha.medium),
             style = MaterialTheme.typography.body1,
             maxLines = if (isExpanded) Int.MAX_VALUE else 2,

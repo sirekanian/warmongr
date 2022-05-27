@@ -3,5 +3,7 @@
     <string name="app_name_part_2">войны</string>
     <string name="app_name_part_3" />
     <string name="app_search_hint">Поиск…</string>
+    <string name="app_copy_menu">Скопировать</string>
+    <string name="app_share_menu">Поделиться</string>
     <bool name="app_cyrillic">true</bool>
 </resources>
