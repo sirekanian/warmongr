@@ -7,9 +7,6 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -28,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import com.sirekanian.acf.R
 import com.sirekanian.acf.SearchState
 import com.sirekanian.acf.ext.DefaultAnimatedVisibility
+import com.sirekanian.acf.ui.icons.IconBack
+import com.sirekanian.acf.ui.icons.IconClose
 
 @Composable
 fun MainSearch(searchState: SearchState) {
@@ -35,7 +34,7 @@ fun MainSearch(searchState: SearchState) {
     val focusRequester = remember { FocusRequester() }
     Row(verticalAlignment = Alignment.CenterVertically) {
         ToolbarButton(
-            icon = Icons.Default.ArrowBack,
+            icon = IconBack,
             onClick = {
                 focusManager.clearFocus()
                 searchState.isOpened = false
@@ -51,7 +50,7 @@ fun MainSearch(searchState: SearchState) {
             requestFocus = { focusRequester.requestFocus() }
         )
         ToolbarButton(
-            icon = Icons.Default.Close,
+            icon = IconClose,
             visible = searchState.query.text.isNotEmpty(),
             onClick = {
                 searchState.query = TextFieldValue()
