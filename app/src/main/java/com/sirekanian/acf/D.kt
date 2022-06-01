@@ -9,6 +9,7 @@ object D {
     val toolbarElevation = 8.dp
     val toolbarButtonPadding = 16.dp
     val fabSize = 96.dp
+    val fabIconSize = 36.dp
     val fabPadding = 16.dp
     val cornerSizeSmall = 12.dp
     val cornerSizeMedium = 28.dp
