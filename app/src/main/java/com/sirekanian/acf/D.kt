@@ -7,6 +7,7 @@ object D {
     val listPaddings = PaddingValues(16.dp, 8.dp, 16.dp, 16.dp)
     val toolbarSize = 64.dp
     val toolbarElevation = 8.dp
+    val toolbarButtonPadding = 16.dp
     val fabSize = 96.dp
     val fabPadding = 16.dp
     val cornerSizeSmall = 12.dp

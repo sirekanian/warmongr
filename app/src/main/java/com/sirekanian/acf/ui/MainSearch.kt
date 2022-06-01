@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.dp
+import com.sirekanian.acf.D
 import com.sirekanian.acf.R
 import com.sirekanian.acf.SearchState
 import com.sirekanian.acf.ext.DefaultAnimatedVisibility
@@ -43,7 +43,6 @@ fun MainSearch(searchState: SearchState) {
         SearchTextField(
             modifier = Modifier
                 .weight(1f)
-                .padding(horizontal = 8.dp)
                 .focusRequester(focusRequester),
             searchState = searchState,
             clearFocus = { focusManager.clearFocus() },
@@ -98,7 +97,7 @@ private fun SearchTextField(
 private fun ToolbarButton(icon: ImageVector, visible: Boolean = true, onClick: () -> Unit) {
     DefaultAnimatedVisibility(visible = visible) {
         IconButton(onClick = onClick) {
-            Icon(icon, null)
+            Icon(icon, null, Modifier.padding(D.toolbarButtonPadding))
         }
     }
 }
