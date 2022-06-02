@@ -5,14 +5,16 @@ plugins {
     id 'org.jetbrains.kotlin.kapt'
 }
 
+apply(from: 'version.gradle')
+
 android {
     compileSdk 32
     defaultConfig {
         applicationId "com.sirekanian.warmongr"
         minSdk 21
         targetSdk 32
-        versionCode 3
-        versionName "0.3.0"
+        versionCode appVersionCode
+        versionName appVersionName
         archivesBaseName = "$applicationId-$versionName-$versionCode"
         vectorDrawables {
             useSupportLibrary true
