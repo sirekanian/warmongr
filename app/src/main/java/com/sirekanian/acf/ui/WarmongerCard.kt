@@ -24,9 +24,9 @@ fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
     var isExpanded by remember { mutableStateOf(false) }
     val surfaceCornerSize by animateDpAsState(
         if (isExpanded) {
-            D.cornerSizeSmall
+            D.cardSelectedCornerSize
         } else {
-            D.cornerSizeMedium
+            D.cardDefaultCornerSize
         }
     )
     val surfaceElevation by animateDpAsState(

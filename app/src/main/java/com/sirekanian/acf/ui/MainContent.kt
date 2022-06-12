@@ -26,7 +26,7 @@ fun MainContent(insets: PaddingValues, state: MainState, data: List<WarmongerMod
             .pointerInputOnDown(Unit) { focusManager.clearFocus() },
         state = state.list.lazyListState,
         contentPadding = insets + paddings + D.listPaddings,
-        verticalArrangement = Arrangement.spacedBy(D.cardSpacing)
+        verticalArrangement = Arrangement.spacedBy(D.cardsSpacing)
     ) {
         items(data) { item ->
             WarmongerCard(state.dialog, item)

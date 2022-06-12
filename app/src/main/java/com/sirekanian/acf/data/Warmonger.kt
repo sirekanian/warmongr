@@ -31,6 +31,7 @@ class Warmonger(
                 cyrillicName = warmonger.cyrillicName,
                 name = warmonger.name,
                 notes = warmonger.notes,
+                tags = "" // TODO: 1202468796234411
             )
 
         fun toModel(warmonger: Warmonger, isCyrillic: Boolean): WarmongerModel =

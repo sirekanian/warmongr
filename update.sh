@@ -13,15 +13,25 @@ wget -qO- "$ENDPOINT/meta.json" |
 
 # transform data.json to csv
 wget --header="Accept-Encoding: gzip" -qO- "$ENDPOINT/data.json" | gunzip |
-  jq -r 'map([.["0"],.["1"],.["4"]])[] | @csv' \
+  jq -r 'map([.["0"],.["1"],.["4"],(.["5"] | join(" "))])[] | @csv' \
     >"app/schemas/WarmongerEntity.csv"
+
+# transform tags.json to csv
+wget -qO- "$ENDPOINT/tags.json" |
+  jq -r 'map([.["id"],.["shortName"],.["ruShortName"]])[] | @csv' \
+    >"app/schemas/TagEntity.csv"
+
+# transform index.json to csv
+wget -qO- "$ENDPOINT/index.json" |
+  jq -r 'to_entries[] | [.key, .value] | @csv' \
+    >"app/schemas/IndexEntity.csv"
 
 # copy setupQueries from schema
 jq -r ".database.setupQueries[]" "$SCHEMA" |
   sed 's/$/;/' \
     >app/schemas/init.sql
 
-for TABLE in MetaEntity WarmongerEntity; do
+for TABLE in MetaEntity WarmongerEntity TagEntity IndexEntity; do
 
   # copy createSql from schema
   jq -r ".database.entities[] | select(.tableName==\"$TABLE\") | .createSql" "$SCHEMA" |

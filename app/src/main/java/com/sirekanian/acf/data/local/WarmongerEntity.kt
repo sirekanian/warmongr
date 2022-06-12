@@ -10,4 +10,5 @@ class WarmongerEntity(
     val cyrillicName: String,
     val name: String,
     val notes: String,
+    val tags: String,
 )

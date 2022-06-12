@@ -13,5 +13,5 @@ class App : Application() {
             .createFromAsset("warmongers.db")
             .build()
     }
-    val repository: Repository by lazy { RepositoryImpl(db.getWarmongerDao()) }
+    val repository: Repository by lazy { RepositoryImpl(db.getWarmongerDao(), db.getTagDao()) }
 }

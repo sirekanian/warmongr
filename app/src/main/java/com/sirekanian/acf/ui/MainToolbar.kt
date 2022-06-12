@@ -1,7 +1,7 @@
 package com.sirekanian.acf.ui
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
@@ -20,11 +20,11 @@ import com.sirekanian.acf.R
 import com.sirekanian.acf.SearchState
 
 @Composable
-fun MainToolbar(insets: PaddingValues, searchState: SearchState) {
+fun MainToolbar(searchState: SearchState) {
     Box(
         modifier = Modifier
-            .padding(insets)
-            .height(D.toolbarSize),
+            .fillMaxWidth()
+            .height(D.toolbarHeaderSize),
         contentAlignment = Alignment.Center,
     ) {
         if (searchState.isOpened) {

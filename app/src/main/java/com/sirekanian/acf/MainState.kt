@@ -36,8 +36,18 @@ class ListState {
 }
 
 class SearchState {
+    var tag by mutableStateOf<Int?>(null)
     var query by mutableStateOf(TextFieldValue())
     var isOpened by mutableStateOf(false)
+    val fullQuery: String? by derivedStateOf {
+        if (isOpened) {
+            val textQuery = if (query.text.isEmpty()) null else "${query.text}*"
+            val tagsQuery = if (tag == null) null else "tags:$tag"
+            listOfNotNull(textQuery, tagsQuery).joinToString(" ")
+        } else {
+            tag?.let { "tags:$it" }
+        }
+    }
 }
 
 class ProgressState {

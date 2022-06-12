@@ -3,7 +3,6 @@ package com.sirekanian.acf.ui
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -16,7 +15,7 @@ fun MainFab(onClick: () -> Unit) {
     FloatingActionButton(
         onClick = onClick,
         modifier = Modifier.size(D.fabSize),
-        shape = MaterialTheme.shapes.medium,
+        shape = D.fabShape,
     ) {
         Icon(
             imageVector = IconSearch,

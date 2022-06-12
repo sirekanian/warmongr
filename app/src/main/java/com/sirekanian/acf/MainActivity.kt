@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
             val isCyrillic = isCyrillicResources()
             val state = remember { MainState(coroutineScope, isCyrillic) }
             val presenter = remember { createPresenter(app(), state) }
-            val data by presenter.observeData().collectAsState(listOf())
+            val data: List<WarmongerModel> by presenter.observeData().collectAsState(listOf())
+            val tags: List<TagModel> by produceState(listOf()) { value = presenter.getTags() }
             val hasData by derivedStateOf { data.isNotEmpty() }
             BackHandler(enabled = state.search.isOpened) {
                 state.search.isOpened = false
@@ -45,7 +46,15 @@ class MainActivity : ComponentActivity() {
                     MainLayout(
                         state = state,
                         toolbar = { insets ->
-                            MainToolbar(insets, state.search)
+                            Column(
+                                modifier = Modifier
+                                    .padding(insets)
+                                    .fillMaxWidth()
+                                    .height(D.toolbarSize)
+                            ) {
+                                MainToolbar(state.search)
+                                MainTags(state.search, tags)
+                            }
                             MainProgress(insets, state.progress)
                         },
                         toolbarElevation = state.toolbarElevation,
