@@ -5,6 +5,7 @@ import com.sirekanian.acf.data.local.WarmongerEntity
 import com.sirekanian.acf.data.remote.WarmongerDto
 
 class Warmonger(
+    val id: Int,
     val cyrillicName: String,
     val name: String,
     val notes: String,
@@ -14,6 +15,7 @@ class Warmonger(
 
         fun fromDto(dto: WarmongerDto): Warmonger =
             Warmonger(
+                id = 0, // TODO: 1202468796234411
                 cyrillicName = dto.`0`,
                 name = dto.`1`.ifEmpty { dto.`0` },
                 notes = dto.`4`,
@@ -21,6 +23,7 @@ class Warmonger(
 
         fun fromEntity(entity: WarmongerEntity): Warmonger =
             Warmonger(
+                id = entity.rowid,
                 cyrillicName = entity.cyrillicName,
                 name = entity.name,
                 notes = entity.notes,
@@ -28,6 +31,7 @@ class Warmonger(
 
         fun toEntity(warmonger: Warmonger): WarmongerEntity =
             WarmongerEntity(
+                rowid = warmonger.id,
                 cyrillicName = warmonger.cyrillicName,
                 name = warmonger.name,
                 notes = warmonger.notes,
@@ -36,6 +40,7 @@ class Warmonger(
 
         fun toModel(warmonger: Warmonger, isCyrillic: Boolean): WarmongerModel =
             WarmongerModel(
+                id = warmonger.id,
                 title = if (isCyrillic) warmonger.cyrillicName else warmonger.name,
                 description = warmonger.notes,
             )

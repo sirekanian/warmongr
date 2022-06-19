@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "71fabb860e0ba05f19f248efc40ff07d",
+    "identityHash": "b8bb5e1f5cbce85118a62d7a7ce20bb4",
     "entities": [
       {
         "ftsVersion": "FTS4",
@@ -46,8 +46,10 @@
           }
         ],
         "primaryKey": {
-          "columnNames": [],
-          "autoGenerate": false
+          "columnNames": [
+            "rowid"
+          ],
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -140,7 +142,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '71fabb860e0ba05f19f248efc40ff07d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b8bb5e1f5cbce85118a62d7a7ce20bb4')"
     ]
   }
 }

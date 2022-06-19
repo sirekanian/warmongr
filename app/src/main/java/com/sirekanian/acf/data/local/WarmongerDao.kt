@@ -11,10 +11,10 @@ private const val LIMIT = 200
 @Dao
 interface WarmongerDao {
 
-    @Query("SELECT * FROM WarmongerEntity ORDER BY cyrillicName LIMIT $LIMIT")
+    @Query("SELECT rowid, * FROM WarmongerEntity ORDER BY cyrillicName LIMIT $LIMIT")
     fun observeAll(): Flow<List<WarmongerEntity>>
 
-    @Query("SELECT * FROM WarmongerEntity WHERE WarmongerEntity MATCH :query LIMIT $LIMIT")
+    @Query("SELECT rowid, * FROM WarmongerEntity WHERE WarmongerEntity MATCH :query LIMIT $LIMIT")
     fun observeByQuery(query: String): Flow<List<WarmongerEntity>>
 
     @Query("DELETE FROM WarmongerEntity")
