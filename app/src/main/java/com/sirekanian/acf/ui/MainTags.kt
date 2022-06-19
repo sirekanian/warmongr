@@ -2,9 +2,9 @@ package com.sirekanian.acf.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,11 +18,13 @@ import com.sirekanian.acf.ui.icons.IconDone
 
 @Composable
 fun MainTags(searchState: SearchState, tags: List<TagModel>) {
-    LazyRow(
-        contentPadding = D.tagsPaddings,
+    Row(
+        modifier = Modifier
+            .horizontalScroll(rememberScrollState())
+            .padding(D.tagsPaddings),
         horizontalArrangement = Arrangement.spacedBy(D.tagsSpacing),
     ) {
-        items(tags, key = { it.id }) { tag ->
+        tags.forEach { tag ->
             val selected = tag.id == searchState.tag
             TagView(
                 tag = tag,
