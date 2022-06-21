@@ -4,9 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
@@ -17,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.WindowCompat
+import com.sirekanian.acf.ext.DefaultAnimatedVisibility
 import com.sirekanian.acf.ext.app
 import com.sirekanian.acf.ext.isCyrillicResources
 import com.sirekanian.acf.ui.*
@@ -31,8 +29,17 @@ class MainActivity : ComponentActivity() {
             val isCyrillic = isCyrillicResources()
             val state = remember { MainState(coroutineScope, isCyrillic) }
             val presenter = remember { createPresenter(app(), state) }
-            val data: List<WarmongerModel> by presenter.observeData().collectAsState(listOf())
-            val tags: List<TagModel> by produceState(listOf()) { value = presenter.getTags() }
+            val data: List<WarmongerModel> by produceState(
+                initialValue = listOf(),
+                key1 = state.search.fullQuery,
+            ) {
+                value = presenter.getWarmongers()
+            }
+            val tags: List<TagModel> by produceState(
+                initialValue = listOf()
+            ) {
+                value = presenter.getTags()
+            }
             val hasData by derivedStateOf { data.isNotEmpty() }
             BackHandler(enabled = state.search.isOpened) {
                 state.search.isOpened = false
@@ -80,13 +87,13 @@ fun MainLayout(
     fabVisible: Boolean,
 ) {
     MainBottomSheet(dialogState = state.dialog) {
-        AnimatedVisibility(contentVisible, enter = fadeIn(), exit = fadeOut()) {
+        DefaultAnimatedVisibility(contentVisible) {
             content(WindowInsets.systemBars.asPaddingValues())
         }
         Surface(Modifier.fillMaxWidth(), elevation = toolbarElevation) {
             toolbar(WindowInsets.statusBars.asPaddingValues())
         }
-        AnimatedVisibility(fabVisible, enter = fadeIn(), exit = fadeOut()) {
+        DefaultAnimatedVisibility(fabVisible) {
             BottomBox(Modifier.padding(D.fabPadding)) {
                 fab()
             }
