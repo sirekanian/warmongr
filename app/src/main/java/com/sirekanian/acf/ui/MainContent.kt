@@ -28,7 +28,7 @@ fun MainContent(insets: PaddingValues, state: MainState, data: List<WarmongerMod
         contentPadding = insets + paddings + D.listPaddings,
         verticalArrangement = Arrangement.spacedBy(D.cardsSpacing)
     ) {
-        items(data, key = { it.id }) { item ->
+        items(data) { item ->
             WarmongerCard(state.dialog, item)
         }
     }
