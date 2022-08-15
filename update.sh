@@ -48,3 +48,8 @@ done
 # recreate pre-packaged database
 rm -f app/src/main/assets/warmongers.db
 sqlite3 app/src/main/assets/warmongers.db <app/schemas/init.sql
+
+# commit changes
+git add app/schemas/*.csv
+git add app/src/main/assets/warmongers.db
+git commit -m "updated pre-packaged database"
