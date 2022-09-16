@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -o pipefail
 
 ENDPOINT="https://sirekanian.github.io/warmongr"
 SCHEMAS="app/schemas/com.sirekanian.acf.data.local.Database"
@@ -52,4 +53,4 @@ sqlite3 app/src/main/assets/warmongers.db <app/schemas/init.sql
 # commit changes
 git add app/schemas/*.csv
 git add app/src/main/assets/warmongers.db
-git commit -m "updated pre-packaged database"
+git commit -m "updated pre-packaged database" || true
