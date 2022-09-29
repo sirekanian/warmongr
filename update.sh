@@ -32,14 +32,13 @@ for TABLE in WarmongerEntity TagEntity IndexEntity; do
   # copy createSql from schema
   jq -r ".database.entities[] | select(.tableName==\"$TABLE\") | .createSql" "$SCHEMA" |
     sed "s/\${TABLE_NAME}/$TABLE/" |
-    sed 's/$/;/' \
-      >>app/schemas/init.sql
+    sed 's/$/;/'
 
   # generate import csv command
-  echo ".import --csv app/schemas/$TABLE.csv $TABLE" \
-    >>app/schemas/init.sql
+  echo ".mode csv"
+  echo ".import app/schemas/$TABLE.csv $TABLE"
 
-done
+done >>app/schemas/init.sql
 
 # recreate pre-packaged database
 rm -f app/src/main/assets/warmongers.db
@@ -47,5 +46,6 @@ sqlite3 app/src/main/assets/warmongers.db <app/schemas/init.sql
 
 # commit changes
 git add app/schemas/*.csv
+git add app/schemas/init.sql
 git add app/src/main/assets/warmongers.db
 git commit -m "updated pre-packaged database" || true
