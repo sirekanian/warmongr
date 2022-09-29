@@ -7,11 +7,6 @@ ENDPOINT="https://sirekanian.github.io/warmongr"
 SCHEMAS="app/schemas/com.sirekanian.acf.data.local.Database"
 SCHEMA=$(find "$SCHEMAS" -name "*.json" | sort -V | tail -1)
 
-# transform meta.json to csv
-wget -qO- "$ENDPOINT/meta.json" |
-  jq -r 'to_entries[] | [.key, .value] | @csv' \
-    >"app/schemas/MetaEntity.csv"
-
 # transform data.json to csv
 wget --header="Accept-Encoding: gzip" -qO- "$ENDPOINT/data.json" | gunzip |
   jq -r 'map([.["0"],.["1"],.["4"],(.["5"] | join(" "))])[] | @csv' \
@@ -32,7 +27,7 @@ jq -r ".database.setupQueries[]" "$SCHEMA" |
   sed 's/$/;/' \
     >app/schemas/init.sql
 
-for TABLE in MetaEntity WarmongerEntity TagEntity IndexEntity; do
+for TABLE in WarmongerEntity TagEntity IndexEntity; do
 
   # copy createSql from schema
   jq -r ".database.entities[] | select(.tableName==\"$TABLE\") | .createSql" "$SCHEMA" |
