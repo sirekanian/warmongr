@@ -57,7 +57,7 @@ dependencies {
 
     // androidx compose
     implementation "androidx.compose.material:material:$composeMaterialVersion"
-    implementation 'androidx.activity:activity-compose:1.6.0'
+    implementation 'androidx.activity:activity-compose:1.6.1'
 
     // androidx room
     implementation "androidx.room:room-runtime:$roomVersion"
