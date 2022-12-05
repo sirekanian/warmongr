@@ -14,7 +14,7 @@ wget --header="Accept-Encoding: gzip" -qO- "$ENDPOINT/data.json" | gunzip |
 
 # transform tags.json to csv
 wget -qO- "$ENDPOINT/tags.json" |
-  jq -r 'map([.["id"],.["shortName"],.["ruShortName"]])[] | @csv' \
+  jq -r 'map([.["id"],.["enShortName"],.["ruShortName"]])[] | @csv' \
     >"app/schemas/TagEntity.csv"
 
 # transform index.json to csv
