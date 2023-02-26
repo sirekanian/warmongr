@@ -61,7 +61,9 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.6.1'
 
     // androidx room
+    //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$roomVersion"
+    //noinspection GradleDependency
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
