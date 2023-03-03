@@ -1,6 +1,6 @@
-package com.sirekanian.acf.ext
+package com.sirekanian.warmongr.ext
 
 import android.app.Activity
-import com.sirekanian.acf.App
+import com.sirekanian.warmongr.App
 
 fun Activity.app() = application as App

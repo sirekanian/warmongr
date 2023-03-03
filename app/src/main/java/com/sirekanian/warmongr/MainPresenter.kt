@@ -1,8 +1,8 @@
-package com.sirekanian.acf
+package com.sirekanian.warmongr
 
-import com.sirekanian.acf.data.Repository
-import com.sirekanian.acf.data.Tag
-import com.sirekanian.acf.data.Warmonger
+import com.sirekanian.warmongr.data.Repository
+import com.sirekanian.warmongr.data.Tag
+import com.sirekanian.warmongr.data.Warmonger
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 

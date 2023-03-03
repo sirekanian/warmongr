@@ -1,10 +1,10 @@
-package com.sirekanian.acf.data
+package com.sirekanian.warmongr.data
 
 import android.database.sqlite.SQLiteException
-import com.sirekanian.acf.ProgressState
-import com.sirekanian.acf.data.local.TagDao
-import com.sirekanian.acf.data.local.WarmongerDao
-import com.sirekanian.acf.data.remote.getWarmongers
+import com.sirekanian.warmongr.ProgressState
+import com.sirekanian.warmongr.data.local.TagDao
+import com.sirekanian.warmongr.data.local.WarmongerDao
+import com.sirekanian.warmongr.data.remote.getWarmongers
 
 interface Repository {
     suspend fun getWarmongers(query: String?): List<Warmonger>

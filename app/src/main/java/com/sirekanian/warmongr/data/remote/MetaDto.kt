@@ -1,4 +1,4 @@
-package com.sirekanian.acf.data.remote
+package com.sirekanian.warmongr.data.remote
 
 import kotlinx.serialization.Serializable
 

@@ -1,4 +1,4 @@
-package com.sirekanian.acf
+package com.sirekanian.warmongr
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,11 +14,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.WindowCompat
-import com.sirekanian.acf.ext.DefaultAnimatedVisibility
-import com.sirekanian.acf.ext.app
-import com.sirekanian.acf.ext.isCyrillicResources
-import com.sirekanian.acf.ui.*
-import com.sirekanian.acf.ui.theme.WarmongrTheme
+import com.sirekanian.warmongr.ext.DefaultAnimatedVisibility
+import com.sirekanian.warmongr.ext.app
+import com.sirekanian.warmongr.ext.isCyrillicResources
+import com.sirekanian.warmongr.ui.*
+import com.sirekanian.warmongr.ui.theme.WarmongrTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

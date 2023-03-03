@@ -1,7 +1,7 @@
-package com.sirekanian.acf.data
+package com.sirekanian.warmongr.data
 
-import com.sirekanian.acf.TagModel
-import com.sirekanian.acf.data.local.TagEntity
+import com.sirekanian.warmongr.TagModel
+import com.sirekanian.warmongr.data.local.TagEntity
 
 class Tag(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.sirekanian.acf.data.remote
+package com.sirekanian.warmongr.data.remote
 
 import io.ktor.client.*
 import io.ktor.client.call.*

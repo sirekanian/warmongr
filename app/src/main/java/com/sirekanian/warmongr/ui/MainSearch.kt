@@ -1,4 +1,4 @@
-package com.sirekanian.acf.ui
+package com.sirekanian.warmongr.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -21,12 +21,12 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
-import com.sirekanian.acf.D
-import com.sirekanian.acf.R
-import com.sirekanian.acf.SearchState
-import com.sirekanian.acf.ext.DefaultAnimatedVisibility
-import com.sirekanian.acf.ui.icons.IconBack
-import com.sirekanian.acf.ui.icons.IconClose
+import com.sirekanian.warmongr.D
+import com.sirekanian.warmongr.R
+import com.sirekanian.warmongr.SearchState
+import com.sirekanian.warmongr.ext.DefaultAnimatedVisibility
+import com.sirekanian.warmongr.ui.icons.IconBack
+import com.sirekanian.warmongr.ui.icons.IconClose
 
 @Composable
 fun MainSearch(searchState: SearchState) {

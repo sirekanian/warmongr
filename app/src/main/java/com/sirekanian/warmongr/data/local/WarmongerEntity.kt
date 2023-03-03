@@ -1,4 +1,4 @@
-package com.sirekanian.acf.data.local
+package com.sirekanian.warmongr.data.local
 
 import androidx.room.Entity
 import androidx.room.Fts4

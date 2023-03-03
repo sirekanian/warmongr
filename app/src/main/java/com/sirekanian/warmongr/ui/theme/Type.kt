@@ -1,4 +1,4 @@
-package com.sirekanian.acf.ui.theme
+package com.sirekanian.warmongr.ui.theme
 
 import androidx.compose.material.Typography
 

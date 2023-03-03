@@ -1,4 +1,4 @@
-package com.sirekanian.acf.ui
+package com.sirekanian.warmongr.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
-import com.sirekanian.acf.D
-import com.sirekanian.acf.SearchState
-import com.sirekanian.acf.TagModel
-import com.sirekanian.acf.ext.AdvancedAnimatedVisibility
-import com.sirekanian.acf.ui.icons.IconDone
+import com.sirekanian.warmongr.D
+import com.sirekanian.warmongr.SearchState
+import com.sirekanian.warmongr.TagModel
+import com.sirekanian.warmongr.ext.AdvancedAnimatedVisibility
+import com.sirekanian.warmongr.ui.icons.IconDone
 
 @Composable
 fun MainTags(searchState: SearchState, tags: List<TagModel>) {

@@ -1,8 +1,8 @@
-package com.sirekanian.acf.data
+package com.sirekanian.warmongr.data
 
-import com.sirekanian.acf.WarmongerModel
-import com.sirekanian.acf.data.local.WarmongerEntity
-import com.sirekanian.acf.data.remote.WarmongerDto
+import com.sirekanian.warmongr.WarmongerModel
+import com.sirekanian.warmongr.data.local.WarmongerEntity
+import com.sirekanian.warmongr.data.remote.WarmongerDto
 
 class Warmonger(
     val id: Int,

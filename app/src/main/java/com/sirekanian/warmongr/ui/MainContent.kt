@@ -1,4 +1,4 @@
-package com.sirekanian.acf.ui
+package com.sirekanian.warmongr.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import com.sirekanian.acf.D
-import com.sirekanian.acf.MainState
-import com.sirekanian.acf.WarmongerModel
-import com.sirekanian.acf.ext.plus
-import com.sirekanian.acf.ext.pointerInputOnDown
+import com.sirekanian.warmongr.D
+import com.sirekanian.warmongr.MainState
+import com.sirekanian.warmongr.WarmongerModel
+import com.sirekanian.warmongr.ext.plus
+import com.sirekanian.warmongr.ext.pointerInputOnDown
 
 @Composable
 fun MainContent(insets: PaddingValues, state: MainState, data: List<WarmongerModel>) {

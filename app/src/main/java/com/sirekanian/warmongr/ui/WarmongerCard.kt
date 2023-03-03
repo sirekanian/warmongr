@@ -1,4 +1,4 @@
-package com.sirekanian.acf.ui
+package com.sirekanian.warmongr.ui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateDpAsState
@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.sirekanian.acf.D
-import com.sirekanian.acf.DialogState
-import com.sirekanian.acf.WarmongerModel
+import com.sirekanian.warmongr.D
+import com.sirekanian.warmongr.DialogState
+import com.sirekanian.warmongr.WarmongerModel
 
 @Composable
 fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
