@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'com.sirekanian.acf'
+    namespace 'com.sirekanian.warmongr'
     compileSdk 33
     defaultConfig {
         applicationId "com.sirekanian.warmongr"
