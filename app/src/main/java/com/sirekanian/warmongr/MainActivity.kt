@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
                                     .height(D.toolbarSize)
                             ) {
                                 MainToolbar(state.search)
-                                MainTags(state.search, tags)
+                                MainTags(D.tagsPaddings, state.search, tags)
                             }
                             MainProgress(insets, state.progress)
                         },

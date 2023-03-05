@@ -17,11 +17,11 @@ import com.sirekanian.warmongr.ext.AdvancedAnimatedVisibility
 import com.sirekanian.warmongr.ui.icons.IconDone
 
 @Composable
-fun MainTags(searchState: SearchState, tags: List<TagModel>) {
+fun MainTags(paddings: PaddingValues, searchState: SearchState, tags: List<TagModel>) {
     Row(
         modifier = Modifier
             .horizontalScroll(rememberScrollState())
-            .padding(D.tagsPaddings),
+            .padding(paddings),
         horizontalArrangement = Arrangement.spacedBy(D.tagsSpacing),
     ) {
         tags.forEach { tag ->

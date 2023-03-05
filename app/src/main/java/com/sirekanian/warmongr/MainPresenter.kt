@@ -20,10 +20,13 @@ class MainPresenterImpl(
     private val state: MainState,
 ) : MainPresenter {
 
-    override suspend fun getWarmongers(): List<WarmongerModel> =
-        repository.getWarmongers(state.search.fullQuery).map { warmonger ->
-            Warmonger.toModel(warmonger, state.isCyrillic)
+    override suspend fun getWarmongers(): List<WarmongerModel> {
+        val allTags = getTags().associateBy(TagModel::id)
+        return repository.getWarmongers(state.search.fullQuery).map { warmonger ->
+            val tags = warmonger.tags.mapNotNull { allTags[it] }
+            Warmonger.toModel(warmonger, tags, state.isCyrillic)
         }
+    }
 
     override suspend fun getTags(): List<TagModel> =
         repository.getTags().map { tag ->

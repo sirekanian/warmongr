@@ -29,7 +29,7 @@ fun MainContent(insets: PaddingValues, state: MainState, data: List<WarmongerMod
         verticalArrangement = Arrangement.spacedBy(D.cardsSpacing)
     ) {
         items(data) { item ->
-            WarmongerCard(state.dialog, item)
+            WarmongerCard(state, item)
         }
     }
 }

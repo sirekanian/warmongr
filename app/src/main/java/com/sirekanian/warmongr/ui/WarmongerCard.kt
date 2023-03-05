@@ -15,12 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.sirekanian.warmongr.D
-import com.sirekanian.warmongr.DialogState
-import com.sirekanian.warmongr.WarmongerModel
+import com.sirekanian.warmongr.*
 
 @Composable
-fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
+fun WarmongerCard(state: MainState, warmonger: WarmongerModel) {
     var isExpanded by remember { mutableStateOf(false) }
     val surfaceCornerSize by animateDpAsState(
         if (isExpanded) {
@@ -42,10 +40,11 @@ fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
         elevation = surfaceElevation
     ) {
         WarmongerCardContent(
+            searchState = state.search,
             warmonger = warmonger,
             isExpanded = isExpanded,
             onClick = { isExpanded = !isExpanded },
-            onLongClick = { dialogState.show(warmonger) },
+            onLongClick = { state.dialog.show(warmonger) },
         )
     }
 }
@@ -53,6 +52,7 @@ fun WarmongerCard(dialogState: DialogState, warmonger: WarmongerModel) {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun WarmongerCardContent(
+    searchState: SearchState,
     warmonger: WarmongerModel,
     isExpanded: Boolean,
     onClick: () -> Unit,
@@ -77,5 +77,8 @@ private fun WarmongerCardContent(
             maxLines = if (isExpanded) Int.MAX_VALUE else 2,
             overflow = TextOverflow.Ellipsis
         )
+        if (isExpanded) {
+            MainTags(D.cardTagsPaddings, searchState, warmonger.tags)
+        }
     }
 }

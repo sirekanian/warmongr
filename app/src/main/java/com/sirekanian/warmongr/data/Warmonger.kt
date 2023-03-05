@@ -1,5 +1,6 @@
 package com.sirekanian.warmongr.data
 
+import com.sirekanian.warmongr.TagModel
 import com.sirekanian.warmongr.WarmongerModel
 import com.sirekanian.warmongr.data.local.WarmongerEntity
 import com.sirekanian.warmongr.data.remote.WarmongerDto
@@ -9,6 +10,7 @@ class Warmonger(
     val cyrillicName: String,
     val name: String,
     val notes: String,
+    val tags: List<Int>,
 ) {
 
     companion object {
@@ -19,6 +21,7 @@ class Warmonger(
                 cyrillicName = dto.`0`,
                 name = dto.`1`.ifEmpty { dto.`0` },
                 notes = dto.`4`,
+                tags = listOf(), // TODO: 1202468796234411
             )
 
         fun fromEntity(entity: WarmongerEntity): Warmonger =
@@ -27,6 +30,7 @@ class Warmonger(
                 cyrillicName = entity.cyrillicName,
                 name = entity.name,
                 notes = entity.notes,
+                tags = entity.tags.split(" ").map(String::toInt),
             )
 
         fun toEntity(warmonger: Warmonger): WarmongerEntity =
@@ -38,11 +42,12 @@ class Warmonger(
                 tags = "" // TODO: 1202468796234411
             )
 
-        fun toModel(warmonger: Warmonger, isCyrillic: Boolean): WarmongerModel =
+        fun toModel(warmonger: Warmonger, tags: List<TagModel>, cyrillic: Boolean): WarmongerModel =
             WarmongerModel(
                 id = warmonger.id,
-                title = if (isCyrillic) warmonger.cyrillicName else warmonger.name,
+                title = if (cyrillic) warmonger.cyrillicName else warmonger.name,
                 description = warmonger.notes,
+                tags = tags,
             )
 
     }
