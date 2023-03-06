@@ -30,7 +30,9 @@ object D {
     val cardSelectedCornerSize = 12.dp
     val cardDefaultElevation = 2.dp
     val cardSelectedElevation = 4.dp
-    val cardTagsPaddings = PaddingValues(0.dp, 16.dp, 0.dp, 0.dp)
+    val cardHorizontalPadding = 24.dp
+    val cardVerticalPadding = 24.dp
+    val cardTagsPaddings = PaddingValues(cardHorizontalPadding, 16.dp, cardHorizontalPadding, 0.dp)
     val progressSize = 2.dp
     val dialogTitlePadding = 16.dp
     val menuIconPadding = 16.dp

@@ -61,18 +61,21 @@ private fun WarmongerCardContent(
     Column(
         modifier = Modifier
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(24.dp)
-            .padding(PaddingValues())
+            .padding(vertical = D.cardVerticalPadding)
             .animateContentSize()
     ) {
         Text(
+            modifier = Modifier
+                .padding(horizontal = D.cardHorizontalPadding),
             text = warmonger.title,
             style = MaterialTheme.typography.h6
         )
         Spacer(Modifier.size(12.dp))
         Text(
             text = warmonger.description,
-            modifier = Modifier.alpha(ContentAlpha.medium),
+            modifier = Modifier
+                .padding(horizontal = D.cardHorizontalPadding)
+                .alpha(ContentAlpha.medium),
             style = MaterialTheme.typography.body1,
             maxLines = if (isExpanded) Int.MAX_VALUE else 2,
             overflow = TextOverflow.Ellipsis
