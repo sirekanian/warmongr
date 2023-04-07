@@ -5,14 +5,14 @@ buildscript {
         composeCompilerVersion = '1.4.4'
         composeMaterialVersion = '1.4.1'
         roomVersion = '2.5.1'
-        ktorVersion = '2.1.0'
     }
 }
 
 plugins {
     id 'com.android.application' version "$androidPluginVersion" apply false
     id 'org.jetbrains.kotlin.android' version "$kotlinVersion" apply false
-    id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion" apply false
+    // TODO: 1202468796234411
+    // id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion" apply false
     id 'org.jetbrains.kotlin.kapt' version "$kotlinVersion" apply false
 }
 

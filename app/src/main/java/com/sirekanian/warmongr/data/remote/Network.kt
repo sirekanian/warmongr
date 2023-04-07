@@ -1,5 +1,6 @@
 package com.sirekanian.warmongr.data.remote
 
+/* TODO: 1202468796234411
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.content.*
@@ -27,3 +28,8 @@ suspend fun getWarmongers(listener: ProgressListener): List<WarmongerDto> =
 
 suspend fun getMeta(): MetaDto =
     httpClient.get(META_URL).body()
+*/
+
+@Suppress("UNUSED_PARAMETER")
+fun getWarmongers(listener: (Long, Long) -> Unit): List<WarmongerDto> =
+    TODO("1202468796234411")

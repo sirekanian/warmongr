@@ -1,8 +1,7 @@
 package com.sirekanian.warmongr.data.remote
 
-import kotlinx.serialization.Serializable
-
-@Serializable
+// TODO: 1202468796234411
+// @Serializable
 class WarmongerDto(
     val `0`: String,
     val `1`: String,
