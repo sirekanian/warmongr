@@ -4,7 +4,7 @@ buildscript {
         kotlinVersion = '1.8.10'
         composeCompilerVersion = '1.4.4'
         composeMaterialVersion = '1.4.1'
-        roomVersion = '2.4.3'
+        roomVersion = '2.5.1'
         ktorVersion = '2.1.0'
     }
 }
