@@ -1,0 +1,20 @@
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      - shell: bash
+        run: ./emulator
+      - shell: bash
+        run: ./gradlew connectedAndroidTest
+      - if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          path: app/build/reports/androidTests/connected/*.html
