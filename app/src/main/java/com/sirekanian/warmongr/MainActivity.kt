@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 value = presenter.getTags()
             }
-            val hasData by derivedStateOf { data.isNotEmpty() }
+            val hasData by remember { derivedStateOf { data.isNotEmpty() } }
             BackHandler(enabled = state.search.isOpened) {
                 state.search.isOpened = false
             }
