@@ -4,6 +4,7 @@ plugins {
     // TODO: 1202468796234411
     // id 'org.jetbrains.kotlin.plugin.serialization'
     id 'org.jetbrains.kotlin.kapt'
+    id 'org.sirekanyan.version-checker'
 }
 
 android {
