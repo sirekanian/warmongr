@@ -39,8 +39,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = '11'
+    kotlin {
+        jvmToolchain(11)
     }
     buildFeatures {
         compose true
@@ -65,7 +65,7 @@ dependencies {
 
     // androidx compose
     implementation "androidx.compose.material:material:$composeMaterialVersion"
-    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation 'androidx.activity:activity-compose:1.7.1'
 
     // androidx room
     implementation "androidx.room:room-runtime:$roomVersion"
@@ -83,4 +83,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.2.0")
+
 }
