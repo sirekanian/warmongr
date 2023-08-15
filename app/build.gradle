@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     // TODO: 1202468796234411
     // id 'org.jetbrains.kotlin.plugin.serialization'
-    id 'org.jetbrains.kotlin.kapt'
+    id 'com.google.devtools.ksp'
     id 'org.sirekanyan.version-checker'
 }
 
@@ -19,11 +19,6 @@ android {
         archivesBaseName = "$applicationId-$versionName-$versionCode"
         vectorDrawables {
             useSupportLibrary true
-        }
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
         }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,6 +56,10 @@ android {
     }
 }
 
+ksp {
+    arg('room.schemaLocation', "$projectDir/schemas")
+}
+
 dependencies {
 
     // androidx compose
@@ -70,7 +69,7 @@ dependencies {
     // androidx room
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    ksp "androidx.room:room-compiler:$roomVersion"
 
     /* TODO: 1202468796234411
     implementation "io.ktor:ktor-client-cio:$ktorVersion"
