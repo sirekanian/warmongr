@@ -9,11 +9,11 @@ plugins {
 
 android {
     namespace 'com.sirekanian.warmongr'
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "com.sirekanian.warmongr"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode appVersionCode as int
         versionName appVersionName
         archivesBaseName = "$applicationId-$versionName-$versionCode"

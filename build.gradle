@@ -1,10 +1,10 @@
 buildscript {
     ext {
-        androidPluginVersion = '8.0.2'
-        kotlinVersion = '1.8.21'
-        composeCompilerVersion = '1.4.7'
-        composeMaterialVersion = '1.4.3'
-        roomVersion = '2.5.1'
+        androidPluginVersion = '8.1.0'
+        kotlinVersion = '1.9.0'
+        composeCompilerVersion = '1.5.1'
+        composeMaterialVersion = '1.5.0'
+        roomVersion = '2.5.2'
     }
 }
 
@@ -13,7 +13,7 @@ plugins {
     id 'org.jetbrains.kotlin.android' version "$kotlinVersion" apply false
     // TODO: 1202468796234411
     // id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion" apply false
-    id 'com.google.devtools.ksp' version "$kotlinVersion-1.0.11" apply false
+    id 'com.google.devtools.ksp' version "$kotlinVersion-1.0.13" apply false
     id 'org.sirekanyan.version-checker' version "1.0.7" apply false
 }
 
