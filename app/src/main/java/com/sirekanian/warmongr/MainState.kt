@@ -4,16 +4,30 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue.Hidden
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
+import com.sirekanian.warmongr.ext.isCyrillicResources
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class MainState(coroutineScope: CoroutineScope, val isCyrillic: Boolean) {
+@Composable
+fun rememberMainState(): MainState {
+    val coroutineScope = rememberCoroutineScope()
+    val density = LocalDensity.current
+    val isCyrillic = isCyrillicResources()
+    return remember { MainState(coroutineScope, density, isCyrillic) }
+}
+
+class MainState(coroutineScope: CoroutineScope, density: Density, val isCyrillic: Boolean) {
     val list = ListState()
     val search = SearchState()
     val progress = ProgressState()
@@ -24,7 +38,7 @@ class MainState(coroutineScope: CoroutineScope, val isCyrillic: Boolean) {
             0.dp
         }
     }
-    val dialog = DialogState(coroutineScope)
+    val dialog = DialogState(coroutineScope, density)
 }
 
 class ListState {
@@ -88,9 +102,9 @@ class ProgressState {
 }
 
 @OptIn(ExperimentalMaterialApi::class)
-class DialogState(private val coroutineScope: CoroutineScope) {
+class DialogState(private val coroutineScope: CoroutineScope, density: Density) {
 
-    val bottomSheetState = ModalBottomSheetState(Hidden)
+    val bottomSheetState = ModalBottomSheetState(Hidden, density)
     var title by mutableStateOf("")
     var content by mutableStateOf("")
 

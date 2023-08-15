@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.core.view.WindowCompat
 import com.sirekanian.warmongr.ext.DefaultAnimatedVisibility
 import com.sirekanian.warmongr.ext.app
-import com.sirekanian.warmongr.ext.isCyrillicResources
 import com.sirekanian.warmongr.ui.*
 import com.sirekanian.warmongr.ui.theme.WarmongrTheme
 
@@ -25,9 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            val coroutineScope = rememberCoroutineScope()
-            val isCyrillic = isCyrillicResources()
-            val state = remember { MainState(coroutineScope, isCyrillic) }
+            val state = rememberMainState()
             val presenter = remember { createPresenter(app(), state) }
             val data: List<WarmongerModel> by produceState(
                 initialValue = listOf(),
