@@ -33,10 +33,14 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         run: |
           base64 --decode <<< "$SIGNING_KEYSTORE_BASE64" > app/release.keystore
+          mkdir -p release-files
           ./gradlew assembleRelease bundleRelease -PsigningConfig=release
+          mv app/build/outputs/*/release/org.sirekanyan*release* release-files
+          ./gradlew assembleRelease bundleRelease -PlegacyPackageName
+          mv app/build/outputs/*/release/com.sirekanian*release* release-files
       - if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            app/build/outputs/apk/release/*-release*.apk
-            app/build/outputs/bundle/release/*-release.aab
+            release-files/*release*.apk
+            release-files/*release*.aab

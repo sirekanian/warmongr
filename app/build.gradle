@@ -11,7 +11,7 @@ android {
     namespace 'org.sirekanyan.warmongr'
     compileSdk 34
     defaultConfig {
-        applicationId "org.sirekanyan.warmongr"
+        applicationId project.hasProperty("legacyPackageName") ? "com.sirekanian.warmongr" : "org.sirekanyan.warmongr"
         minSdk 21
         targetSdk 34
         versionCode appVersionCode as int
