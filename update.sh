@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 ENDPOINT="https://sirekanian.github.io/warmongr"
-SCHEMAS="app/schemas/com.sirekanian.warmongr.data.local.Database"
+SCHEMAS="app/schemas/org.sirekanyan.warmongr.data.local.Database"
 SCHEMA=$(find "$SCHEMAS" -name "*.json" | sort -V | tail -1)
 
 # transform data.json to csv

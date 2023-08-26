@@ -8,10 +8,10 @@ plugins {
 }
 
 android {
-    namespace 'com.sirekanian.warmongr'
+    namespace 'org.sirekanyan.warmongr'
     compileSdk 34
     defaultConfig {
-        applicationId "com.sirekanian.warmongr"
+        applicationId "org.sirekanyan.warmongr"
         minSdk 21
         targetSdk 34
         versionCode appVersionCode as int

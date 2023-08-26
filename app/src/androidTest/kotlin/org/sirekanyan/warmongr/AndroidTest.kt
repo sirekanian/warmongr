@@ -9,8 +9,8 @@ import androidx.test.uiautomator.*
 import org.junit.Test
 import org.junit.runner.RunWith
 
-private const val PACKAGE = "com.sirekanian.warmongr"
-private const val ACTIVITY = "com.sirekanian.warmongr.MainActivity"
+private const val PACKAGE = "org.sirekanyan.warmongr"
+private const val ACTIVITY = "org.sirekanyan.warmongr.MainActivity"
 
 @RunWith(AndroidJUnit4::class)
 class AndroidTest {
