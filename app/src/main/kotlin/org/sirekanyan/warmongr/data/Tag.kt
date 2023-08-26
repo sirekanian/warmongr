@@ -1,7 +1,7 @@
-package com.sirekanian.warmongr.data
+package org.sirekanyan.warmongr.data
 
-import com.sirekanian.warmongr.TagModel
-import com.sirekanian.warmongr.data.local.TagEntity
+import org.sirekanyan.warmongr.TagModel
+import org.sirekanyan.warmongr.data.local.TagEntity
 
 class Tag(
     val id: Int,

@@ -1,9 +1,9 @@
-package com.sirekanian.warmongr.data
+package org.sirekanyan.warmongr.data
 
-import com.sirekanian.warmongr.TagModel
-import com.sirekanian.warmongr.WarmongerModel
-import com.sirekanian.warmongr.data.local.WarmongerEntity
-import com.sirekanian.warmongr.data.remote.WarmongerDto
+import org.sirekanyan.warmongr.TagModel
+import org.sirekanyan.warmongr.WarmongerModel
+import org.sirekanyan.warmongr.data.local.WarmongerEntity
+import org.sirekanyan.warmongr.data.remote.WarmongerDto
 
 class Warmonger(
     val id: Int,

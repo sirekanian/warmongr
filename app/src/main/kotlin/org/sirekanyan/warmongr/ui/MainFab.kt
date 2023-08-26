@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui
+package org.sirekanyan.warmongr.ui
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.FloatingActionButton
@@ -6,9 +6,9 @@ import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.sirekanian.warmongr.D
-import com.sirekanian.warmongr.R
-import com.sirekanian.warmongr.ui.icons.IconSearch
+import org.sirekanyan.warmongr.D
+import org.sirekanyan.warmongr.R
+import org.sirekanyan.warmongr.ui.icons.IconSearch
 
 @Composable
 fun MainFab(onClick: () -> Unit) {

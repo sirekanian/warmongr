@@ -1,10 +1,10 @@
-package com.sirekanian.warmongr
+package org.sirekanyan.warmongr
 
 import android.app.Application
 import androidx.room.Room
-import com.sirekanian.warmongr.data.Repository
-import com.sirekanian.warmongr.data.RepositoryImpl
-import com.sirekanian.warmongr.data.local.Database
+import org.sirekanyan.warmongr.data.Repository
+import org.sirekanyan.warmongr.data.RepositoryImpl
+import org.sirekanyan.warmongr.data.local.Database
 
 class App : Application() {
     private val db by lazy {

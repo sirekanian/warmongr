@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui.theme
+package org.sirekanyan.warmongr.ui.theme
 
 import androidx.compose.material.Typography
 

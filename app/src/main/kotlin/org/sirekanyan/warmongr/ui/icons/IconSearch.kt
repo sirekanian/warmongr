@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui.icons
+package org.sirekanyan.warmongr.ui.icons
 
 import androidx.compose.material.icons.materialIcon
 import androidx.compose.material.icons.materialPath

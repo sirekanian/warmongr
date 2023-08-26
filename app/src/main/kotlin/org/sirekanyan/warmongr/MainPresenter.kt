@@ -1,8 +1,8 @@
-package com.sirekanian.warmongr
+package org.sirekanyan.warmongr
 
-import com.sirekanian.warmongr.data.Repository
-import com.sirekanian.warmongr.data.Tag
-import com.sirekanian.warmongr.data.Warmonger
+import org.sirekanyan.warmongr.data.Repository
+import org.sirekanyan.warmongr.data.Tag
+import org.sirekanyan.warmongr.data.Warmonger
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 

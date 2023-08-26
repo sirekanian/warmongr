@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr
+package org.sirekanyan.warmongr
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,10 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.WindowCompat
-import com.sirekanian.warmongr.ext.DefaultAnimatedVisibility
-import com.sirekanian.warmongr.ext.app
-import com.sirekanian.warmongr.ui.*
-import com.sirekanian.warmongr.ui.theme.WarmongrTheme
+import org.sirekanyan.warmongr.ext.DefaultAnimatedVisibility
+import org.sirekanyan.warmongr.ext.app
+import org.sirekanyan.warmongr.ui.*
+import org.sirekanyan.warmongr.ui.theme.WarmongrTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

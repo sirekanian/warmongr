@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr
+package org.sirekanyan.warmongr
 
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material.ExperimentalMaterialApi
@@ -15,7 +15,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
-import com.sirekanian.warmongr.ext.isCyrillicResources
+import org.sirekanyan.warmongr.ext.isCyrillicResources
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

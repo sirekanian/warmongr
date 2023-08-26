@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui
+package org.sirekanyan.warmongr.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,9 +15,9 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.sirekanian.warmongr.D
-import com.sirekanian.warmongr.R
-import com.sirekanian.warmongr.SearchState
+import org.sirekanyan.warmongr.D
+import org.sirekanyan.warmongr.R
+import org.sirekanyan.warmongr.SearchState
 
 @Composable
 fun MainToolbar(searchState: SearchState) {

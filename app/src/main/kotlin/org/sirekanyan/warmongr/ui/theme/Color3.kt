@@ -1,6 +1,6 @@
 // This file is generated using https://material-foundation.github.io/material-theme-builder
 
-package com.sirekanian.warmongr.ui.theme
+package org.sirekanyan.warmongr.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

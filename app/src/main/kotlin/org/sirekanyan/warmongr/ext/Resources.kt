@@ -1,8 +1,8 @@
-package com.sirekanian.warmongr.ext
+package org.sirekanyan.warmongr.ext
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.booleanResource
-import com.sirekanian.warmongr.R
+import org.sirekanyan.warmongr.R
 
 @Composable
 fun isCyrillicResources(): Boolean =

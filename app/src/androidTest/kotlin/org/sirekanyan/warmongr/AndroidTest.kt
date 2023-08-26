@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr
+package org.sirekanyan.warmongr
 
 import android.content.ComponentName
 import android.content.Intent

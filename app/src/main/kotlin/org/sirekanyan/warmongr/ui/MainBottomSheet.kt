@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui
+package org.sirekanyan.warmongr.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,12 +12,12 @@ import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
-import com.sirekanian.warmongr.D
-import com.sirekanian.warmongr.DialogState
-import com.sirekanian.warmongr.R
-import com.sirekanian.warmongr.ext.createShareIntent
-import com.sirekanian.warmongr.ui.icons.IconCopy
-import com.sirekanian.warmongr.ui.icons.IconShare
+import org.sirekanyan.warmongr.D
+import org.sirekanyan.warmongr.DialogState
+import org.sirekanyan.warmongr.R
+import org.sirekanyan.warmongr.ext.createShareIntent
+import org.sirekanyan.warmongr.ui.icons.IconCopy
+import org.sirekanyan.warmongr.ui.icons.IconShare
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

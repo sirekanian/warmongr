@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.ui
+package org.sirekanyan.warmongr.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -13,8 +13,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import com.sirekanian.warmongr.D
-import com.sirekanian.warmongr.ProgressState
+import org.sirekanyan.warmongr.D
+import org.sirekanyan.warmongr.ProgressState
 
 @Composable
 fun MainProgress(insets: PaddingValues, progressState: ProgressState) {

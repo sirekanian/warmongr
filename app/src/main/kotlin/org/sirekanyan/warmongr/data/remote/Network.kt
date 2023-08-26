@@ -1,4 +1,4 @@
-package com.sirekanian.warmongr.data.remote
+package org.sirekanyan.warmongr.data.remote
 
 /* TODO: 1202468796234411
 import io.ktor.client.*
