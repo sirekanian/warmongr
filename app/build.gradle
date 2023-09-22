@@ -42,7 +42,7 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlin {
-        jvmToolchain(11)
+        jvmToolchain(17)
     }
     buildFeatures {
         compose true
@@ -56,6 +56,7 @@ android {
         }
     }
     kotlinOptions {
+        jvmTarget = "11"
         allWarningsAsErrors = true
     }
     lint {
