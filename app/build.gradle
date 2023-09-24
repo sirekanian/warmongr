@@ -16,7 +16,7 @@ android {
         targetSdk 34
         versionCode appVersionCode as int
         versionName appVersionName
-        archivesBaseName = "$applicationId-$versionName-$versionCode"
+        base.archivesName = "$applicationId-$versionName-$versionCode"
         vectorDrawables {
             useSupportLibrary true
         }
