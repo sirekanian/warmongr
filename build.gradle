@@ -1,10 +1,10 @@
 buildscript {
     ext {
-        androidPluginVersion = '8.1.1'
+        androidPluginVersion = '8.1.2'
         kotlinVersion = '1.9.10'
         composeCompilerVersion = '1.5.3'
-        composeMaterialVersion = '1.5.1'
-        roomVersion = '2.5.2'
+        composeMaterialVersion = '1.5.4'
+        roomVersion = '2.6.0'
     }
 }
 
