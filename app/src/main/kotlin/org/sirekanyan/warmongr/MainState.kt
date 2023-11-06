@@ -30,7 +30,8 @@ fun rememberMainState(): MainState {
     val density = LocalDensity.current
     val isCyrillic = isCyrillicResources()
     val searchState = rememberSaveable(saver = SearchState.Saver) { SearchState() }
-    return remember { MainState(coroutineScope, density, isCyrillic, searchState) }
+    val lazyListState = rememberSaveable(saver = LazyListState.Saver) { LazyListState() }
+    return remember { MainState(coroutineScope, density, isCyrillic, searchState, lazyListState) }
 }
 
 class MainState(
@@ -38,8 +39,9 @@ class MainState(
     density: Density,
     val isCyrillic: Boolean,
     val search: SearchState,
+    lazyListState: LazyListState,
 ) {
-    val list = ListState()
+    val list = ListState(lazyListState)
     val progress = ProgressState()
     val toolbarElevation by derivedStateOf {
         if (search.isOpened || !list.isTopVisible) {
@@ -51,8 +53,7 @@ class MainState(
     val dialog = DialogState(coroutineScope, density)
 }
 
-class ListState {
-    val lazyListState = LazyListState()
+class ListState(val lazyListState: LazyListState) {
     val isTopVisible by derivedStateOf {
         lazyListState.firstVisibleItemIndex == 0 &&
                 lazyListState.firstVisibleItemScrollOffset == 0
