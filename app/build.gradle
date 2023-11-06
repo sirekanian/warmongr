@@ -5,6 +5,7 @@ plugins {
     // id 'org.jetbrains.kotlin.plugin.serialization'
     id 'com.google.devtools.ksp'
     id 'org.sirekanyan.version-checker'
+    id 'kotlin-parcelize'
 }
 
 android {
